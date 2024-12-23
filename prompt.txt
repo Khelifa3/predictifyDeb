@@ -1,0 +1,10 @@
+I have a Price Prediction DApp named predictify, the goal of the dapp is to predict bitcoin price ath the end of the round,
+ placing a fixed amount, the closest prediction win all prizepool.
+Generate a React component using Tailwind CSS. The component should include:
+- Two buttons labeled "Bet 0.01 tBNB" and "End round".
+- An input field with a placeholder "Enter price".
+- A section that displays 5 values labeled "Current Round", "Current Price", "Time since start", "Betting time left", "Last round winner"
+- A section that displays 3 values labeled "Seed amount", "Predictions count"
+- A list below that updates in real-time with new items added dynamically for new bets in format ["account" : "price"]
+- A footer with a "HOWTO" and a link to contract on bscscan
+The design should be clean, responsive, and minimalistic.
