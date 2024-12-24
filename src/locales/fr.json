@@ -1,6 +1,8 @@
 {
     "title": "DApp de Prédiction de Prix",
+    "round": "Manche",
     "wallet": "Portefeuille",
+    "prizepool": "Cagnotte",
     "account": "Compte",
     "balance": "Solde",
     "currentRound": "Manche Actuelle",
@@ -12,6 +14,7 @@
     "totalUpBets": "Total des Paris HAUT",
     "totalDownBets": "Total des Paris BAS",
     "bet": "Pari",
+    "notset": "Non défini",
     "up": "HAUT",
     "down": "BAS",
     "endTurn": "Terminer la manche",

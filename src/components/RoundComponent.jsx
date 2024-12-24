@@ -74,7 +74,7 @@ const RoundComponent = () => {
                 <Card className="bg-gray-800 border-gray-700  overflow-hidden">
                     <CardHeader>
                         <CardTitle className="flex items-center text-blue-400">
-                            <Alien className="mr-2" color="#60A5FA" /> Round # {contract.currentRound.toString()}
+                            <Alien className="mr-2" color="#60A5FA" /> {translate('round')} # {contract.currentRound.toString()}
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4 p-6">
@@ -95,14 +95,15 @@ const RoundComponent = () => {
                           <span className="flex items-center"><Clock className="mr-2 text-orange-400" color="#FB923C" /> {translate('bettingTimeLeft')}</span>
                           <span className="text-orange-400">{timers.timeLeftForBetting}</span>
                         </div>
-                        <Progress value={(timers.timeLeftForBetting / 300) * 100} className="h-2 bg-gray-700" />
+
+                        <Progress value={(timers.timeLeftForBetting / 60*60) * 100} className="h-2 bg-gray-700" />
                       </div>
                       <div>
                         <div className="flex justify-between mb-2">
                           <span className="flex items-center"><Clock className="mr-2 text-pink-400" color="#F472B6" /> {translate('timeSinceRoundStart')}</span>
                           <span className="text-pink-400">{timers.timeSinceStart}</span>
                         </div>
-                        <Progress value={(timers.timeSinceStart / 600) * 100} className="h-2 'bg-gray-700" />
+                        <Progress value={(timers.timeSinceStart / 86400) * 100} className="h-2 bg-gray-700" />
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="flex items-center"><Trophy className="mr-2 text-yellow-400" color="#FBBF24" /> {translate('previousWinner')}</span>

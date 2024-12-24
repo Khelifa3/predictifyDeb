@@ -1,6 +1,8 @@
 {
     "title": "Price Prediction DApp",
+    "round": "Round",
     "wallet": "Wallet",
+    "prizepool": "Prize pool",
     "account": "Account",
     "balance": "Balance",
     "currentRound": "Current Round",
@@ -12,6 +14,7 @@
     "totalUpBets": "Total Up Bets",
     "totalDownBets": "Total Down Bets",
     "bet": "Bet",
+    "notset": "Not set",
     "up": "UP",
     "down": "DOWN",
     "endTurn": "End round",

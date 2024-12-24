@@ -45,7 +45,7 @@ const WalletComponent = () => {
             <Card className="bg-gray-800 border-gray-700 overflow-hidden">
             <CardHeader>
               <CardTitle className="flex items-center text-blue-400">
-                <Wallet className="mr-2" color="#60A5FA" /> Wallet information
+                <Wallet className="mr-2" color="#60A5FA" /> {translate("wallet")}
               </CardTitle>
             </CardHeader>
 
@@ -53,13 +53,10 @@ const WalletComponent = () => {
                 <w3m-button />
               {isConnected && (
                 <>
-                  <div className="flex justify-between items-center">
-                    <span className="text-green-400">{translate('pendingWithdrawal')}</span>
-                    <span className="text-green-400">{ethers.formatEther(wallet.pendingWithdrawal)} {wallet.currency}</span>
-                  </div>
+
                   <div className="flex justify-between items-center">
                     <span className="text-cyan-400">{translate('predictedPrice')}</span>
-                    <span className="text-cyan-400">{wallet.currentPrediction || "Not set"}</span>
+                    <span className="text-cyan-400">{wallet.currentPrediction || translate("notset")}</span>
                   </div>
                   <div className="flex items-center space-x-2 mt-4">
                     <Input
@@ -73,6 +70,16 @@ const WalletComponent = () => {
                       {translate('placeBet')} 0.01 tBNB
                     </Button>
                   </div>
+
+                  <div className="flex justify-between items-center">
+                    <span className="text-green-400">{translate('pendingWithdrawal')}</span>
+                    <span className="text-green-400">{ethers.formatEther(wallet.pendingWithdrawal)} {wallet.currency}</span>
+
+                  </div>
+                  <Button onClick={endRound} variant="secondary" className="w-full bg-green-600 hover:bg-green-700 mt-2">
+                    {translate('withdraw')}
+                  </Button>
+
                   <Button onClick={endRound} variant="secondary" className="w-full bg-purple-600 hover:bg-purple-700 mt-2">
                     {translate('endTurn')}
                   </Button>
