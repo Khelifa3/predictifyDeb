@@ -1,4 +1,5 @@
 import React from 'react';
+import HeaderComponent from './HeaderComponent';
 import WalletComponent from './WalletComponent';
 import RoundComponent from './RoundComponent';
 import EventsComponent from './EventsComponent';
@@ -11,13 +12,19 @@ const PredictionComponent = () => {
     const { translate } = useLanguage();
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col items-center p-6">
-            <h1 className="text-4xl font-bold mb-8 animate-fade-in">{translate('title')}</h1>
-            <RoundComponent />
-            <WalletComponent />
-            <EventsComponent />
-            <CurrentBetsComponent />
-            <Footer />
+        <div className="min-h-screen bg-gray-900 text-gray-100 p-4 space-y-6">
+            <div className="container mx-auto">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+                    <HeaderComponent />
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <RoundComponent />
+                        <WalletComponent />
+                        <EventsComponent />
+                        <CurrentBetsComponent />
+                    </div>
+                    <Footer />
+                </div>
+            </div>
         </div>
 
     );

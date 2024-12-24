@@ -9,7 +9,7 @@ export const useBlockchainStore = create((set, get) => ({
         network: null,
         balance: null,
         currency: "tBNB",
-        pendingWithdrawal: null,
+        pendingWithdrawal: 0,
         predictedPrice: null,
         error: null,
         isFetching: false,
