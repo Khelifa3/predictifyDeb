@@ -12,7 +12,6 @@ import { Progress } from "./ui/progress"
 import { SpaceIcon as Alien, Rocket, Zap, DollarSign, Trophy, Clock, Wallet, Users, Sun, Moon, HelpCircle, ExternalLink } from 'lucide-react'
 
 
-
 const CurrentBetsComponent = () => {
     const { contract, bets, wallet } = useBlockchainStore();
     const { loadBlockchainData } = useWallet();
@@ -41,14 +40,25 @@ const CurrentBetsComponent = () => {
                           <Users className="mr-2" color="#60A5FA" /> {translate('betCount')}: {contract.n_bets.toString()}
                         </CardTitle>
                       </CardHeader>
-                      <CardContent className="space-y-4 p-6">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                          {bets.all_bets.map((bet, index) => (
-                            <div key={index} className="bg-gray-700 p-3 rounded-lg">
-                              <div className="text-purple-400 truncate">{truncateAddress(bet.bettor)}</div>
-                              <div className="text-cyan-400 font-bold">${toDecimal(bet.predictedPrice)}</div>
-                            </div>
-                          ))}
+
+                      <CardContent className="p-6">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-center text-black border-collapse border-spacing-2 border-gray-500">
+                            <thead>
+                              <tr className="border border-gray-500">
+                                <th className="p-3 rounded-lg">{translate("account")}</th>
+                                <th className="p-3 rounded-lg">{translate("prediction")}</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {bets.all_bets.map((bet, index) => (
+                                <tr key={index} className="transition border border-gray-500">
+                                  <td className="text-center text-purple-400   border-gray-500">{truncateAddress(bet.bettor)}</td>
+                                  <td className="text-center text-cyan-400 font-bold  border-gray-500">${toDecimal(bet.predictedPrice)}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
                         </div>
                        </CardContent>
                     </Card>

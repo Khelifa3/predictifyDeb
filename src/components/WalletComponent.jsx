@@ -28,7 +28,7 @@ const WalletComponent = () => {
         await handleEndRound(contract.contractInstance);
     };
     const withdraw = async () => {
-        // Call the function to handle the bet submission
+        // Call the function to handle the withdraw submission
         await handleWithdraw(contract.contractInstance);
     };
 
@@ -56,7 +56,7 @@ const WalletComponent = () => {
 
                   <div className="flex justify-between items-center">
                     <span className="text-cyan-400">{translate('predictedPrice')}</span>
-                    <span className="text-cyan-400">{wallet.currentPrediction || translate("notset")}</span>
+                    <span className="text-cyan-400">{wallet.predictedPrice ? "$"+toDecimal(wallet.predictedPrice) : translate("notset")}</span>
                   </div>
                   <div className="flex items-center space-x-2 mt-4">
                     <Input
@@ -76,7 +76,7 @@ const WalletComponent = () => {
                     <span className="text-green-400">{ethers.formatEther(wallet.pendingWithdrawal)} {wallet.currency}</span>
 
                   </div>
-                  <Button onClick={endRound} variant="secondary" className="w-full bg-green-600 hover:bg-green-700 mt-2">
+                  <Button onClick={withdraw} variant="secondary" className="w-full bg-green-600 hover:bg-green-700 mt-2">
                     {translate('withdraw')}
                   </Button>
 
