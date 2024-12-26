@@ -1,22 +1,22 @@
-import * as React from "react"
-import * as ProgressPrimitive from "@radix-ui/react-progress"
-import { cn } from "../../lib/utils"
+import React from 'react';
 
-const Progress = React.forwardRef(({ className, value, ...props }, ref) => (
-  <ProgressPrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative h-4 w-full overflow-hidden rounded-full bg-secondary",
-      className
-    )}
-    {...props}
-  >
-    <ProgressPrimitive.Indicator
-      className="h-full w-full flex-1 bg-primary transition-all"
-      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
-    />
-  </ProgressPrimitive.Root>
-))
-Progress.displayName = ProgressPrimitive.Root.displayName
+const ProgressBar = ({ progress, color }) => {
+  // Cap the progress at 100
+  const cappedProgress = Math.min(progress, 100);
 
-export { Progress }
+  return (
+    <div className="mb-1 text-base font-medium dark:text-white">
+      <div className="w-full bg-gray-700 rounded-full h-2 mb-4 dark:bg-gray-700">
+        <div
+          className={`h-2 rounded-full`}
+          style={{
+            width: `${cappedProgress}%`,
+            backgroundColor: color, // Set the color dynamically
+          }}
+        ></div>
+      </div>
+    </div>
+  );
+};
+
+export default ProgressBar;

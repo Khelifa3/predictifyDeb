@@ -8,7 +8,6 @@ import { useAppKitAccount } from "@reown/appkit/react";
 import { Button } from "./ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { Input } from "./ui/input"
-import { Progress } from "./ui/progress"
 import { SpaceIcon as Alien, Rocket, Zap, DollarSign, Trophy, Clock, Wallet, Users, Sun, Moon, HelpCircle, ExternalLink } from 'lucide-react'
 
 
@@ -42,24 +41,37 @@ const CurrentBetsComponent = () => {
                       </CardHeader>
 
                       <CardContent className="p-6">
-                        <div className="overflow-x-auto">
-                          <table className="w-full text-center text-black border-collapse border-spacing-2 border-gray-500">
+
+                        <div className="overflow-x-auto rounded-lg shadow-lg bg-gray-900">
+                          <table className="w-full text-center border-collapse border-spacing-0">
                             <thead>
-                              <tr className="border border-gray-500">
-                                <th className="p-3 rounded-lg">{translate("account")}</th>
-                                <th className="p-3 rounded-lg">{translate("prediction")}</th>
+                              <tr className="bg-gray-800 text-black">
+                                <th className="p-4 text-lg font-bold border-b border-gray-700">
+                                  {translate("account")}
+                                </th>
+                                <th className="p-4 text-lg font-bold border-b border-gray-700">
+                                  {translate("prediction")}
+                                </th>
                               </tr>
                             </thead>
                             <tbody>
                               {bets.all_bets.map((bet, index) => (
-                                <tr key={index} className="transition border border-gray-500">
-                                  <td className="text-center text-purple-400   border-gray-500">{truncateAddress(bet.bettor)}</td>
-                                  <td className="text-center text-cyan-400 font-bold  border-gray-500">${toDecimal(bet.predictedPrice)}</td>
+                                <tr
+                                  key={index}
+                                  className={`${index % 2 === 0 ? "bg-gray-800" : "bg-gray-900"}`}
+                                >
+                                  <td className="p-4 text-purple-400 font-medium border-b border-gray-700">
+                                    {truncateAddress(bet.bettor)}
+                                  </td>
+                                  <td className="p-4 text-cyan-400 font-bold border-b border-gray-700">
+                                    ${toDecimal(bet.predictedPrice)}
+                                  </td>
                                 </tr>
                               ))}
                             </tbody>
                           </table>
                         </div>
+
                        </CardContent>
                     </Card>
                 </>)

@@ -21,12 +21,11 @@ const PredictionComponent = () => {
                         <WalletComponent />
                         <EventsComponent />
                         <CurrentBetsComponent />
-                    </div>
+                        </div>
                     <Footer />
                 </div>
             </div>
         </div>
-
     );
 };
 
