@@ -29,7 +29,7 @@ const formatTime = (timeInSeconds) => {
 };
 
 
-const ROUND_DURATION = 60*60*24
+const ROUND_DURATION = 60 * 60 * 24 // 1 day in seconds
 const BETTING_DURATION = 60 * 60; // 1 hour in seconds
 
 const RoundComponent = () => {
@@ -114,7 +114,7 @@ const RoundComponent = () => {
                       <div>
                         <div className="flex justify-between mb-2">
                           <span className="flex items-center"><Clock className="mr-2 text-orange-400" color="#FB923C" /> {translate('bettingTimeLeft')}</span>
-                          <span className="text-orange-400">{timers.timeLeftForBetting}</span>
+                          <span className="text-orange-400">{translate(timers.timeLeftForBetting)}</span>
                         </div>
                         <ProgressBar progress={progress.updatedProgressBetting} color="#FB923C" />
                       </div>
