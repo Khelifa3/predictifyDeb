@@ -125,11 +125,12 @@ const RoundComponent = () => {
                         </div>
                         <ProgressBar progress={progress.updatedProgressRound} color="#F472B6" />
                       </div>
-
+                        {contract.roundWinner &&(
                       <div className="flex justify-between items-center">
                         <span className="flex items-center"><Trophy className="mr-2 text-yellow-400" color="#FBBF24" /> {translate('previousWinner')}</span>
                         <span className="text-yellow-400">{truncateAddress(contract.roundWinner.toString())}</span>
-                      </div>
+                      </div>)
+                        }
                     </CardContent>
                 </Card>)
             }

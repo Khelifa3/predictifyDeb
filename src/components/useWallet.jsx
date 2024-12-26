@@ -1,7 +1,7 @@
 // hooks/useWallet.js
 import { ethers } from "ethers";
-import networkMapping from ".././chain-info/deployments/map.json";
-import BitcoinUpDown from ".././chain-info/contracts/BitcoinUpDown.json";
+import contract from ".././chain-info/contract.json";
+import __local__ from ".././chain-info/__local__.json";
 import { useAppKitProvider, useAppKitAccount } from "@reown/appkit/react";
 import { useBlockchainStore } from "./useBlockchainStore";
 
@@ -14,8 +14,8 @@ export const useWallet = () => {
     // Contract Actions
     const loadBlockchainData = async () => {
         setContract({ message: "Loading round data..", isFetching: true });
-        const contractAddress = networkMapping[chainId]["BitcoinUpDown"][0];
-        const { abi } = BitcoinUpDown;
+        const contractAddress = contract["contract_address"];
+        const abi = __local__["contractTypes"]["Predictify"]["abi"];
         let providerInstance;
         try {
             if (!isConnected) {

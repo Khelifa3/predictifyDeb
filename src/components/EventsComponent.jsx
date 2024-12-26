@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import networkMapping from ".././chain-info/deployments/map.json";
-import BitcoinUpDown from ".././chain-info/contracts/BitcoinUpDown.json";
+import contract from ".././chain-info/contract.json";
+import __local__ from ".././chain-info/__local__.json";
 import { useWallet } from "./useWallet";
 
 const EventsComponent = () => {
     const chainId = "97"; // Testnet ID
-    const contractAddress = networkMapping[chainId]["BitcoinUpDown"][0];
-    const { abi } = BitcoinUpDown;
+    const contractAddress = contract["contract_address"];
+    const abi = __local__["contractTypes"]["Predictify"]["abi"];
     const bsctest_url = "https://bsc-testnet.bnbchain.org"
     const { loadBlockchainData } = useWallet();
 
