@@ -1,8 +1,17 @@
-# React + Vite
+General
+The Predictify DApp is a decentralized prediction game where users can place bets on the future price of Bitcoin. The closest prediction at the end of each round wins the prize pool. Below are the detailed rules and mechanics of the game.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Round:
+Each round lasts at least 24 hours. After this, anyone can end the round and start a new one. At the end of the round, the contract automatically determines the winner based on the closest price prediction to the actual Bitcoin price. In the case of a tie, the user who placed their bet first wins.
 
-Currently, two official plugins are available:
+2. Place a Bet:
+Enter your price prediction for Bitcoin at the end of the round, within 1 hour of the round's start. Bet amount is fixed 0.01 BNB. Each account can place only one bet per round. No two users can pick the same price in the same round.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+3. Withdraw Winnings:
+Winners can manually withdraw their winnings from the DApp interface at their convenience.
+
+4. Price source:
+The contract uses a decentralized oracle, Chainlink Price Feeds, to fetch the actual Bitcoin price at the end of each round.
+
+5. Fees:
+A 10% fee from the prize pool is collected at the end of each round, 9% to seed the next round and 1% for the contract owner.
